@@ -1,0 +1,23 @@
+{
+  "name": "oauth2-example",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jacksonStone/OAuth2-Example.git"
+  },
+  "author": "Jackson Stone",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jacksonStone/OAuth2-Example/issues"
+  },
+  "homepage": "https://github.com/jacksonStone/OAuth2-Example#readme",
+  "dependencies": {
+    "express": "^4.14.0",
+    "pug": "^2.0.0-beta6"
+  }
+}

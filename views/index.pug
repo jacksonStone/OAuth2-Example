@@ -1,0 +1,31 @@
+doctype html
+html.
+  <h1>Hello World</h1>
+  <a href="https://www.facebook.com/v2.8/dialog/oauth?client_id=157443981397695&response_type=code&redirect_uri=http://localhost:1337/oauth&scope=public_profile,email">
+    FB Login
+  </a>
+  <div id='username'></div>
+  <div id='picture-frame'>
+    <img  id="picture" style="width:40px;height:40px">
+  </div>
+
+  <script>
+    if(location.search)
+    {
+      var access_token_beginning = location.search.indexOf('=')+1;
+      var token = location.search.substring(access_token_beginning);
+      var xhttp = new XMLHttpRequest();
+      xhttp.open("GET", "https://graph.facebook.com/v2.8/me?fields=name,email,first_name,picture&access_token=" + token, true);
+      xhttp.send();
+      xhttp.onreadystatechange = function() {
+        if (xhttp.readyState == 4 && xhttp.status == 200) {
+          var body = JSON.parse(xhttp.response);
+          var username = body.name;
+          var profile_picture_url = body.picture.data.url
+         document.getElementById("username").innerHTML = 'Greetings: ' + username + '!';
+         document.getElementById("picture").setAttribute("src", profile_picture_url); 
+
+        }
+      };
+    }
+  </script>
